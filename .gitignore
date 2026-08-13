@@ -21,10 +21,6 @@ env/
 # Dataset files (large files)
 data/*.csv
 
-# Matplotlib generated files
-*.png
-*.jpg
-*.jpeg
 
 # Logs
 *.log
