@@ -59,7 +59,7 @@ ipl-win-probability-engine/
 ---
 
 ## How It Works
-```markdown
+
 ```text
 IPL Dataset
      |
@@ -77,6 +77,7 @@ ProbabilityEngine
      |
      ↓
 Win Probability Graph
+```
 
 ---
 
@@ -86,21 +87,39 @@ Clone the repository:
 
 ```bash
 git clone <repository-url>
+```
+
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Run the project:
+
+```bash
 python main.py
 ```
-Example Output
+
+---
+
+## Example Output
+
 The model generates a ball-by-ball win probability graph showing how the chasing team's chances change during the match.
+
 ![Win Probability Graph](assets/win_probability.png)
 
-Future Improvements
-Integrate matches.csv for automatic target extraction
-Add team names and logos
-Improve probability accuracy
-Replace rule-based model with machine learning model
+---
 
+## Future Improvements
 
-Author
+- Integrate matches.csv for automatic target extraction
+- Add team names and logos
+- Improve probability accuracy
+- Replace rule-based model with machine learning model
+
+---
+
+## Author
+
 Chiranjeevi S Gowda
