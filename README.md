@@ -108,6 +108,7 @@ python main.py
 The model generates a ball-by-ball win probability graph showing how the chasing team's chances change during the match.
 
 ![Win Probability Graph](assets/win_probability.png)
+![Terminal Visualization](assets/Terminal_output.png)
 
 ---
 
