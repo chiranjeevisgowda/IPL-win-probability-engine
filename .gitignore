@@ -18,9 +18,5 @@ env/
 .vscode/
 .idea/
 
-# Dataset files (large files)
-data/*.csv
-
-
 # Logs
 *.log

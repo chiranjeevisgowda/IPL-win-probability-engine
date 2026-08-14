@@ -69,3 +69,64 @@ class MatchEngine:
             states.append(state)
         
         return states
+    
+    def over_summary(self, states):
+        summary = []
+        if not self.innings_data:
+            return summary
+
+        runs = 0
+        total_runs = 0
+        total_wicket = 0
+        current_over = self.innings_data[0]["over"]
+
+        for row in self.innings_data:
+        # If a new over starts, close and record the previous over
+            if row["over"] != current_over:
+                overs_completed = current_over + 1
+                state_index = min((overs_completed * 6) - 1, len(states) - 1)
+                over_state = states[state_index]
+
+                current_run_rate = round(total_runs / overs_completed, 1)
+                required_run_rate = round(over_state["required_run_rate"], 1)
+
+                over_data = {
+                    "over": current_over,
+                    "runs": runs,
+                    "total_runs": total_runs,
+                    "wickets": total_wicket,
+                    "current_run_rate": current_run_rate,
+                    "required_run_rate": required_run_rate,
+                    }
+                summary.append(over_data)
+
+            # Reset over-level runs for the new over
+                runs = 0
+                current_over = row["over"]
+
+        # Accumulate ball stats
+            runs += row["total_runs"]
+            total_runs += row["total_runs"]
+            total_wicket += row["is_wicket"]
+
+    # Append the final over of the innings
+        overs_completed = current_over + 1
+        state_index = min((overs_completed * 6) - 1, len(states) - 1)
+        over_state = states[state_index]
+
+        current_run_rate = round(total_runs / overs_completed, 1)
+        required_run_rate = round(over_state["required_run_rate"], 1)
+
+        over_data = {
+        "over": current_over,
+        "runs": runs,
+        "total_runs": total_runs,
+        "wickets": total_wicket,
+        "current_run_rate": current_run_rate,
+        "required_run_rate": required_run_rate,
+        }
+        summary.append(over_data)
+
+        return summary
+
+
