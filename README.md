@@ -114,8 +114,7 @@ The model generates a ball-by-ball win probability graph showing how the chasing
 
 ## Future Improvements
 
-- Integrate matches.csv for automatic target extraction
-- Add team names and logos
+- Add team logos
 - Improve probability accuracy
 - Replace rule-based model with machine learning model
 
